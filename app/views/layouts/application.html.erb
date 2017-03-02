@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Poliksena</title>
+    <title>Poliksena Blog</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+        header {
+          width: 100%;
+        }
+        #container {
+          width: 700px;
+          margin: auto;
+        }
+        #menu {
+          width: 199px;
+          float: left;
+          border-right: 1px solid #ededed;
+        }
+        #main {
+          width: 480px;
+          float: left;
+          padding: 0px 0px 10px 0px;
+        }
+        footer {
+          width: 100%;
+          clear: both;
+        }
+        h1 {
+          margin-top: 0;
+        }
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="container">
+      <header>
+        <h1>Poliksena Blog</h1>
+      </header>
+      <div id="menu">
+        <ul>
+          <li>Strona główna</li>
+          <li>Coś</li>
+        </ul>
+      </div>
+      <div id="main">
+        <%= yield %>
+      </div>
+      <footer>2017 Poliksena Blog</footer>
+    </div>
   </body>
 </html>
