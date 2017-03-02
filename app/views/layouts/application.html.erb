@@ -9,24 +9,27 @@
     <style type="text/css">
         header {
           width: 100%;
+          border-bottom: 1px solid #ededed;
         }
         #container {
           width: 700px;
           margin: auto;
         }
         #menu {
-          width: 199px;
+          width: 200px;
           float: left;
-          border-right: 1px solid #ededed;
         }
         #main {
-          width: 480px;
+          width: 489px;
           float: left;
-          padding: 0px 0px 10px 0px;
+          padding: 0px 0px 0px 10px;
+          border-left: 1px solid #ededed;
         }
         footer {
           width: 100%;
           clear: both;
+          text-align: center;
+          padding-top: 20px;
         }
         h1 {
           margin-top: 0;
@@ -41,8 +44,8 @@
       </header>
       <div id="menu">
         <ul>
-          <li>Strona główna</li>
-          <li>Coś</li>
+          <li><%= link_to 'Strona główna', controller: 'welcome' %></li>
+          <li><%= link_to 'Artykuły', controller: 'articles' %></li>
         </ul>
       </div>
       <div id="main">
