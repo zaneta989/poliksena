@@ -32,15 +32,8 @@
           margin-right: 10px;
         }
         #container {
-          width: 700px;
+          width: 760px;
           margin: auto;
-          background-color: #FFFFFF;
-        }
-        #main {
-          width: 489px;
-          float: left;
-          padding: 0px 0px 0px 10px;
-          border-left: 1px solid #ededed;
         }
         footer {
           width: 100%;
@@ -58,6 +51,13 @@
         a:hover {
           font-weight: bold;
         }
+        .post{
+         background-color: #FFFFFF;
+         width: 100%;
+         margin: 15px 0;
+          padding: 40px;
+
+        }
     </style>
   </head>
 
@@ -70,9 +70,7 @@
           <%= link_to 'Artykuły', controller: 'articles' %>
       </div>
     <div id="container">
-      <div id="main">
         <%= yield %>
-      </div>
       <footer>2017 Poliksena Blog</footer>
     </div>
   </body>
