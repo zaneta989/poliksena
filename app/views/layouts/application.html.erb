@@ -9,7 +9,7 @@
     <style type="text/css">
         body {
           font-family: Calibri, Helvetica, Arial, sans-serif;
-          background: url("http://img.freepik.com/free-vector/cute-gray-pattern_1017-6215.jpg?size=338&ext=jpg");
+          background: url("http://1.bp.blogspot.com/-c-Z0i16rV6U/VI2Q3_p3woI/AAAAAAAABEs/P7dyrMzdxUk/s1600/symphony-1.png");
           padding: 0;
           margin: 0;
         }
@@ -87,6 +87,25 @@
           font-size: 12px;
           padding: 0px 0px 0px 20px;
         }
+        footer{
+          background-color: black;
+          color: white;
+          margin: 0;
+          padding: 0;
+        }
+        #pasekDolny{
+          font-family: Calibri, Helvetica, Arial, sans-serif;
+          background: url("http://2.bp.blogspot.com/-TnrWMh-lg_A/VI2RPNyXcfI/AAAAAAAABE0/LmXEFTuLrjE/s1600/header_pattern.jpg");
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+        .trescNaPaskuDolnym{
+          float: left;
+          width: 100px;
+          margin: 50px;
+
+        }
     </style>
   </head>
 
@@ -100,7 +119,14 @@
       </div>
     <div id="container">
         <%= yield %>
-      <footer>2017 Poliksena Blog</footer>
     </div>
+    <div id="pasekDolny">
+      <div class="trescNaPaskuDolnym">
+        <h1>About Author </h1>
+        <p>Student informatyki</p>
+      </div>
+      <br style="clear: left;">
+    </div>
+    <footer>2017 Poliksena Blog</footer>
   </body>
 </html>
