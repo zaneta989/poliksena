@@ -35,7 +35,7 @@
         }
         #container {
           width: 760px;
-          margin: auto;
+          margin: 0 auto;
         }
         a, a:visited {
           text-decoration: none;
@@ -50,6 +50,7 @@
           margin: 15px 0;
           padding: 40px;
           text-align: justify;
+          box-sizing: border-box;
         }
         .post h1{
           text-align: center;
@@ -101,12 +102,13 @@
           float: left;
           width: 200px;
           margin: 0;
-          padding-left: 50px;
+          padding: 0 0 0 20px;
+          text-align: justify;
         }
         #containerPaskaDolnego{
-          width: 780px;
-          margin: 350px;
-          padding: auto;
+          width: 900px;
+          margin: 0 auto;
+          padding: 0;
           color: white;
           font-family: 14px;
           font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
@@ -144,6 +146,14 @@
         </div>
         <div class="trescNaPaskuDolnym">
           <h1>Nowy artykuł</h1>
+          <p>Etiam pretium, felis at malesuada feugiat, dui sapien feugiat elit, vel gravida est magna in lacus. Integer dapibus elit leo. </p>
+        </div>
+        <div class="trescNaPaskuDolnym">
+          <h1>Cos tu bedzie</h1>
+          <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
+        </div>
+        <div class="trescNaPaskuDolnym">
+          <h1>Cos tu bedzie</h1>
           <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
           <p><%= link_to 'New article', new_article_path %></p>
         </div>
