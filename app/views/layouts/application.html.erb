@@ -37,12 +37,6 @@
           width: 760px;
           margin: auto;
         }
-        footer {
-          width: 100%;
-          clear: both;
-          text-align: center;
-          padding-top: 20px;
-        }
         a, a:visited {
           text-decoration: none;
           color: #B00100;
@@ -88,24 +82,45 @@
           padding: 0px 0px 0px 20px;
         }
         footer{
-          background-color: black;
+          background-color: #2E2F30;
           color: white;
           margin: 0;
-          padding: 0;
+          width: 100%;
+          clear: both;
+          text-align: center;
+          padding: 10px;
         }
         #pasekDolny{
           font-family: Calibri, Helvetica, Arial, sans-serif;
           background: url("http://2.bp.blogspot.com/-TnrWMh-lg_A/VI2RPNyXcfI/AAAAAAAABE0/LmXEFTuLrjE/s1600/header_pattern.jpg");
           width: 100%;
           padding: 0;
-          margin: 0;
+          margin: auto;
         }
         .trescNaPaskuDolnym{
           float: left;
-          width: 100px;
-          margin: 50px;
+          width: 200px;
+          margin: 0;
+          padding-left: 50px;
+        }
+        #containerPaskaDolnego{
+          width: 780px;
+          margin: 350px;
+          padding: auto;
+          color: white;
+          font-family: 14px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 
         }
+        .trescNaPaskuDolnym h1{
+          color: #DADADA;
+          font-size: 20px;
+          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+          text-transform: uppercase;
+          border-bottom: 2px solid #FFFFFF;
+          font-weight: bold;
+        }
+
     </style>
   </head>
 
@@ -121,9 +136,17 @@
         <%= yield %>
     </div>
     <div id="pasekDolny">
-      <div class="trescNaPaskuDolnym">
-        <h1>About Author </h1>
-        <p>Student informatyki</p>
+      <div id="containerPaskaDolnego">
+        <div class="trescNaPaskuDolnym">
+          <h1>About Author </h1>
+          <img src="https://media3.giphy.com/media/JIX9t2j0ZTN9S/200_s.gif">
+          <p>Student informatyki</p>
+        </div>
+        <div class="trescNaPaskuDolnym">
+          <h1>Nowy artykuł</h1>
+          <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
+          <p><%= link_to 'New article', new_article_path %></p>
+        </div>
       </div>
       <br style="clear: left;">
     </div>
