@@ -1,7 +1,10 @@
 <div class="post">
-
-  <h4><%= @article.updated_at.to_formatted_s(:long_ordinal)%></h4>
   <h1><%= @article.title %></h1>
+  <span class="parametryPosta">
+    <%= @article.updated_at.to_formatted_s(:db)%>
+    <%= @article.comments.count %> comments
+  </span>
+  <br><br>
   <%= @article.text %>
   <br><br>
 
