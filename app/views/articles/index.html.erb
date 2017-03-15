@@ -1,8 +1,9 @@
 
 <% @articles.each do |article| %>
   <div class="post">
+    <h4><%= article.updated_at.to_formatted_s(:long_ordinal)%></h4>
     <h1><%= article.title %></h1>
-    <%= article.text %>
+    <%= sanitize(truncate(article.text, length: 400)) %>
     <br><br>
     <h3><%= link_to 'Read More', article_path(article) %></h3>
     <div class="przyciski">

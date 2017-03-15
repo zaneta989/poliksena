@@ -1,5 +1,6 @@
 <div class="post">
 
+  <h4><%= @article.updated_at.to_formatted_s(:long_ordinal)%></h4>
   <h1><%= @article.title %></h1>
   <%= @article.text %>
   <br><br>

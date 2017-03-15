@@ -18,7 +18,7 @@
       <%= f.label :title %><br>
       <%= f.text_field :title %>
     </p>
-
+    <% @article.updated_at=Date.today%>
     <p>
       <%= f.label :text %><br>
       <%= f.text_area :text %>
