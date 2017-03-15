@@ -1,7 +1,10 @@
 <div class="comment">
   <h1>
-    <%= comment.commenter %>
+    <%= comment.commenter %>,
   </h1>
+  <h2>
+    <%= comment.created_at.to_formatted_s(:long_ordinal) %>
+  </h2>
 
   <p>
     <%= comment.body %>
