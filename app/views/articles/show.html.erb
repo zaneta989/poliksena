@@ -1,13 +1,17 @@
 <div class="post">
   <h1><%= @article.title %></h1>
   <span class="parametryPosta">
-    <%= @article.updated_at.to_formatted_s(:db)%>
+    <%= @article.updated_at.strftime("%D")%>
     <%= @article.comments.count %> comments
   </span>
   <br><br>
   <%= @article.text %>
   <br><br>
-
+  <div class="containerPolA">
+    <div class="polecaneA">
+      <h2>Polecane Artykuły</h2>
+    </div>
+  </div>
   <h2>Comments</h2>
   <%= render @article.comments %>
 
