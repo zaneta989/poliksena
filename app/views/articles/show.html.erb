@@ -3,6 +3,7 @@
   <span class="parametryPosta">
     <%= @article.updated_at.strftime("%D")%>
     <%= @article.comments.count %> comments
+    <%= render @article.tags %>
   </span>
   <br><br>
   <%= @article.text %>
