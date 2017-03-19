@@ -20,6 +20,10 @@
     </p>
     <% @article.updated_at=Date.today%>
     <p>
+      <%= f.label :tagi%><br>
+      <%= f.text_field :tag_list, value: f.object.tag_list.to_s %>
+    </p>
+    <p>
       <%= f.label :text %><br>
       <%= f.text_area :text %>
     </p>
