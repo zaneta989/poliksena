@@ -1,1 +1,26 @@
-<%= render 'article' %>
+<div class="post">
+  <h1><%= @article.title %></h1>
+  <span class="parametryPosta">
+    <%= @article.updated_at.strftime("%D")%>
+    <%= @article.comments.count %> comments
+    <%= render @article.tags %>
+  </span>
+  <br><br>
+  <%= @article.text %>
+  <br><br>
+  <div class="containerPolA">
+    <h2>Polecane Artykuły</h2>
+    <div class="polecaneA">
+    </div>
+  </div>
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+
+  <%= render 'comments/form' %>
+  <div class="przyciski">
+    <strong>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+      <%= link_to 'Back', articles_path %>
+    </strong>
+  </div>
+</div>

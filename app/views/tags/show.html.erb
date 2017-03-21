@@ -1,2 +1,13 @@
-<h1><%= @tag.name %></h1>
-<div><%= render @articles %></div>
+<div id="tag">
+  <p>
+    Wszytkie artykuły z tagiem
+    <i><%= @tag.name %></i>
+  </p>
+  <div class="przyciski">
+      <%= link_to 'Usuń tag', tag_path(@tag),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+  </div>
+</div>
+  <div><%= render @articles %></div>
+

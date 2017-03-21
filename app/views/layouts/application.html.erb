@@ -136,8 +136,6 @@
           margin: 0 auto;
           padding: 0;
           color: white;
-          font-family: 14px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 
         }
         .trescNaPaskuDolnym h1{
@@ -147,6 +145,16 @@
           text-transform: uppercase;
           border-bottom: 2px solid #FFFFFF;
           font-weight: bold;
+        }
+        #tag{
+          text-align: center;
+          background-color: rgba(255,255,255,0.7);
+          border: 1px ridge grey;
+          margin-top: 40px;
+          font-size: 30px;
+          font-family: "Arial Narrow";
+          color: #999999;
+          padding: 15px;
         }
 
     </style>
@@ -171,15 +179,15 @@
           <p>Student informatyki</p>
         </div>
         <div class="trescNaPaskuDolnym">
-          <h1>Nowy artykuł</h1>
-          <p>Etiam pretium, felis at malesuada feugiat, dui sapien feugiat elit, vel gravida est magna in lacus. Integer dapibus elit leo. </p>
+          <h1>Tagi</h1>
+          <p><%= render template: "tags/index" %></p>
         </div>
         <div class="trescNaPaskuDolnym">
           <h1>Cos tu bedzie</h1>
           <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
         </div>
         <div class="trescNaPaskuDolnym">
-          <h1>Cos tu bedzie</h1>
+          <h1>Nowy artykuł</h1>
           <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
           <p><%= link_to 'New article', new_article_path %></p>
         </div>
