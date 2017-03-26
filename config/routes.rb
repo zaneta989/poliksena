@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :tags
+  resources :users
 end
