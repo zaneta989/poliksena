@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/new'
-
+  root to: 'welcome#index'
   get '/' => 'welcome#index'
   resources :articles do
     resources :comments
