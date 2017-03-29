@@ -165,9 +165,10 @@
         <h1>Poliksena Blog</h1>
       </header>
       <div id="menu">
-          <%= link_to 'Strona główna', controller: 'welcome' %>
-          <%= link_to 'Artykuły', controller: 'articles' %>
-
+          <%= link_to 'Strona główna', root_path %>
+          <%= link_to 'Artykuły', articles_path %>
+          <%= link_to 'Rejestracja', new_user_registration_path %>
+          <%= link_to 'Logowanie', new_user_session_path %>
       </div>
     <div id="container">
       <p class="notice"><%= notice %></p>
