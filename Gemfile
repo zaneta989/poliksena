@@ -29,6 +29,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'devise'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
