@@ -168,7 +168,7 @@
           <%= link_to 'Strona główna', root_path %>
           <%= link_to 'Artykuły', articles_path %>
           <% if user_signed_in? %>
-            <%= link_to 'Wyloguj', destroy_user_session_path %>
+            <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to 'Logowanie', new_user_session_path %>
           <% end %>
