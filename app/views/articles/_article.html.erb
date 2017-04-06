@@ -12,10 +12,12 @@
       <h3><%= link_to 'Read More', article_path(article) %></h3>
       <div class="przyciski">
         <strong>
-          <%= link_to 'Edit', edit_article_path(article) %> |
-          <%= link_to 'Destroy', article_path(article),
-                      method: :delete,
-                      data: { confirm: 'Are you sure?' } %>
+          <% if can? :manage, @article %>
+              <%= link_to "Zmień", edit_article_path(article) %> |
+              <%= link_to 'Usuń', article_path(article),
+                          method: :delete,
+                          data: { confirm: 'Na pewno?' } %>
+          <% end %>
         </strong>
       </div>
  </div>
