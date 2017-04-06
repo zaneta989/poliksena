@@ -1,4 +1,7 @@
 <div class="post">
+  <% if can? :manage, User %>
+      <p>Visible only for superadmins and supervisors! </p>
+  <% end %>
   <h1>Edit article</h1>
   <%= render 'form' %>
   <div class="przyciski">
