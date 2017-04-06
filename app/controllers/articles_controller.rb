@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "admin", password: "1234", except: [:index, :show]
   skip_before_action :authenticate_user!, :only => [:index, :show]
   def new
     @article=Article.new
@@ -20,6 +19,7 @@ class ArticlesController < ApplicationController
     end
   end
   def edit
+    load_and_authorize_resource
     @article = Article.find(params[:id])
   end
   def update
