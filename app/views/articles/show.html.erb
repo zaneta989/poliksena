@@ -20,7 +20,7 @@
   <div class="przyciski">
     <strong>
       <% if can? :manage, @article %>
-          <%= link_to "Zmień", edit_article_path(article) %> |
+          <%= link_to "Zmień", edit_article_path(@article) %> |
       <% end %>
       <%= link_to 'Wróć', articles_path %>
     </strong>

@@ -13,7 +13,7 @@
       <div class="przyciski">
         <strong>
           <% if can? :manage, @article %>
-              <%= link_to "Zmień", edit_article_path(article) %> |
+              <%= link_to "Zmień", edit_article_path(@article) %> |
               <%= link_to 'Usuń', article_path(article),
                           method: :delete,
                           data: { confirm: 'Na pewno?' } %>

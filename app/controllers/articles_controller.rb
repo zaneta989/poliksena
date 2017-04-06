@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  skip_before_action :authenticate_user!, :only => [:index, :show]
+  load_and_authorize_resource
+  #skip_before_action :authenticate_user!, :only => [:index, :show]
+  skip_authorize_resource :only => [:index, :show ]
   def new
     @article=Article.new
   end
@@ -19,7 +21,6 @@ class ArticlesController < ApplicationController
     end
   end
   def edit
-    load_and_authorize_resource
     @article = Article.find(params[:id])
   end
   def update
