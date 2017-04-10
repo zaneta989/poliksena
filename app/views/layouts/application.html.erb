@@ -3,7 +3,8 @@
   <head>
     <title>Poliksena Blog</title>
     <%= csrf_meta_tags %>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style type="text/css">
@@ -14,12 +15,11 @@
           margin: 0;
         }
         header {
-          width: 100%;
           box-sizing: border-box;
           text-align: center;
           background-color: #FFFFFF;
           margin: 0;
-          padding: 20px;
+          padding: 20px 0;
           font-family: Trattatello, sans-serif;
           font-size: 40px;
         }
@@ -35,9 +35,8 @@
         #menu a{
           margin-right: 10px;
         }
-        #container {
-          width: 760px;
-          margin: 0 auto;
+        #content {
+
         }
         a, a:visited {
           text-decoration: none;
@@ -121,26 +120,18 @@
           font-size: 14px;
           font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
         }
-        #pasekDolny{
+        .pasekDolny{
           font-family: Calibri, Helvetica, Arial, sans-serif;
           background: url("http://2.bp.blogspot.com/-TnrWMh-lg_A/VI2RPNyXcfI/AAAAAAAABE0/LmXEFTuLrjE/s1600/header_pattern.jpg");
           width: 100%;
           padding: 0;
           margin: auto;
+          color: white;
         }
         .trescNaPaskuDolnym{
-          float: left;
-          width: 200px;
           margin: 0;
           padding: 0 0 0 20px;
           text-align: justify;
-        }
-        #containerPaskaDolnego{
-          width: 900px;
-          margin: 0 auto;
-          padding: 0;
-          color: white;
-
         }
         .trescNaPaskuDolnym h1{
           color: #DADADA;
@@ -207,53 +198,76 @@
         .flickr_pagination{
           margin-bottom: 15px;
         }
+        .nastepny{
+          text-align: right;
+        }
+        .poprzedni{
+          text-align: left;
+        }
     </style>
   </head>
 
   <body>
-      <header>
-        <h1>Poliksena Blog</h1>
-      </header>
-      <div id="menu">
-          <%= link_to 'Strona główna', root_path %>
-          <%= link_to 'Artykuły', articles_path %>
-          <% if user_signed_in? %>
-            <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'Logowanie', new_user_session_path %>
-          <% end %>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <header>
+            <h1>Poliksena Blog</h1>
+          </header>
+          <div id="menu">
+              <%= link_to 'Strona główna', root_path %>
+              <%= link_to 'Artykuły', articles_path %>
+              <% if user_signed_in? %>
+                <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %>
+              <% else %>
+                <%= link_to 'Logowanie', new_user_session_path %>
+              <% end %>
+          </div>
+        </div>
       </div>
-    <div id="container">
-      <% if notice %>
-          <p class="notice"><%= notice %></p>
-      <% end %>
-      <% if alert %>
-        <p class="alert"><%= alert %></p>
-      <%end%>
-      <%= yield %>
     </div>
-    <div id="pasekDolny">
-      <div id="containerPaskaDolnego">
-        <div class="trescNaPaskuDolnym">
-          <h1>About Author </h1>
-          <img src="https://media3.giphy.com/media/JIX9t2j0ZTN9S/200_s.gif">
-          <p>Student informatyki</p>
-        </div>
-        <div class="trescNaPaskuDolnym">
-          <h1>Tagi</h1>
-          <p><%= render template: "tags/index" %></p>
-        </div>
-        <div class="trescNaPaskuDolnym">
-          <h1>Cos tu bedzie</h1>
-          <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
-        </div>
-        <div class="trescNaPaskuDolnym">
-          <h1>Nowy artykuł</h1>
-          <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
-          <p><%= link_to 'New article', new_article_path %></p>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <div id="content">
+            <% if notice %>
+                <p class="notice"><%= notice %></p>
+            <% end %>
+            <% if alert %>
+              <p class="alert"><%= alert %></p>
+            <%end%>
+            <%= yield %>
+          </div>
         </div>
       </div>
-      <br style="clear: left;">
+    </div>
+
+
+    <div class="container-fluid">
+      <div class="row pasekDolny">
+            <div class="col-md-2 hidden-sm"></div>
+            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+              <h1>About Author </h1>
+              <img src="https://media3.giphy.com/media/JIX9t2j0ZTN9S/200_s.gif" class="img-responsive">
+              <p>Student informatyki</p>
+            </div>
+            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+              <h1>Tagi</h1>
+              <p><%= render template: "tags/index" %></p>
+            </div>
+            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+              <h1>Cos tu bedzie</h1>
+              <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
+            </div>
+            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+              <h1>Nowy artykuł</h1>
+              <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
+              <p><%= link_to 'New article', new_article_path %></p>
+            </div>
+
+      </div>
     </div>
     <footer>2017 Poliksena Blog</footer>
   </body>

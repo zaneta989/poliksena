@@ -22,13 +22,14 @@
       <% if can? :manage, @article %>
           <%= link_to "Zmień", edit_article_path(@article) %> |
       <% end %>
-      <%= link_to 'Wróć', articles_path %>
     </strong>
   </div>
 
 </div>
 <div class="flickr_pagination">
-  <%= link_to("Następny", @article.next_post) if @article.next_post %>
-  <%= link_to("Strona Główna", articles_path) %>
-  <%= link_to("Poprzedni", @article.previous_post) if @article.previous_post %>
+  <div class="row">
+    <div class="col-xs-4"><div class="poprzedni"><%= link_to("Poprzedni", @article.previous_post) if @article.previous_post %></div></div>
+    <div class="col-xs-4"><%= link_to("Strona Główna", articles_path) %></div>
+    <div class="col-xs-4"><div class="nastepny"> <%= link_to("Następny", @article.next_post) if @article.next_post %></div></div>
+  </div>
 </div>
