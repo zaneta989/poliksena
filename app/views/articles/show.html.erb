@@ -25,4 +25,6 @@
       <%= link_to 'Wróć', articles_path %>
     </strong>
   </div>
+  <%= link_to("Previous Post", @article.previous_post) if @article.previous_post %>
+  <%= link_to("Next Post", @article.next_post) if @article.next_post %>
 </div>
