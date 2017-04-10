@@ -1,4 +1,3 @@
-<%= will_paginate @articles %>
 <% @articles.each do |article| %>
     <div class="post">
       <h4><%= article.updated_at.strftime("%e %B %Y")%></h4>
@@ -24,5 +23,8 @@
       </div>
     </div>
 <% end %>
-<%= will_paginate @articles%>
+<div class="flickr_pagination">
+  <%= will_paginate @articles%>
+</div>
+
 
