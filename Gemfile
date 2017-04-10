@@ -22,7 +22,7 @@ gem 'devise'
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
 gem 'cancancan'
-
+gem 'will_paginate', '~> 3.1.1'
 group :development, :test do
   gem 'byebug', platform: :mri
 end

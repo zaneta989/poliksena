@@ -5,10 +5,11 @@ class ArticlesController < ApplicationController
     @article=Article.new
   end
   def index
-    @articles = Article.all
+    @articles = Article.all.paginate(page: params[:page], per_page: 5)
   end
   def show
     @article = Article.find(params[:id])
+
   end
   def create
     @article = Article.new(article_params)
