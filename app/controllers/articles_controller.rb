@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
-  load_and_authorize_resource
-  skip_authorize_resource :only => [:index, :show ]
+
+  #load_and_authorize_resource :only => [:create, :edit,:update, :destroy]
+  before_filter :authenticate_user!, :except => [:index, :show]
   def new
     @article=Article.new
   end
