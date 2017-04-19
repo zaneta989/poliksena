@@ -1,9 +1,15 @@
-<div class="post">
-  <h1>New article</h1>
-  <%= render 'form' %>
-  <div class="przyciski">
-    <strong>
-      <%= link_to 'Back', articles_path %>
-    </strong>
+<% if cannot? :manage, @article %>
+    <div class="notice">
+      <p>Visible only for superadmins and supervisors! </p>
+    </div>
+<%else%>
+  <div class="post">
+    <h1>New article</h1>
+    <%= render 'form' %>
+    <div class="przyciski">
+      <strong>
+        <%= link_to 'Back', articles_path %>
+      </strong>
+    </div>
   </div>
-</div>
+<%end%>

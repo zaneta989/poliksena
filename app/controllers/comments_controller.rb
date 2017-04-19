@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  skip_before_action :authenticate_user!, :only => [:create]
+  before_filter :authenticate_user!, :except => [:create]
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)

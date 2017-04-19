@@ -4,9 +4,11 @@
     <i><%= @tag.name %></i>
   </p>
   <div class="przyciski">
+    <% if can? :manage, @tag %>
       <%= link_to 'Usuń tag', tag_path(@tag),
                   method: :delete,
-                  data: { confirm: 'Are you sure?' } %>
+                  data: { confirm: 'Na pewno?' } %>
+    <%end%>
   </div>
 </div>
   <div><%= render @articles %></div>

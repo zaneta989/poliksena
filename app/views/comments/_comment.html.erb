@@ -12,9 +12,12 @@
 </div>
 <div class ="przyciski">
   <p>
+    <% if can? :manage, @comment%>
     <strong><%= link_to 'Destroy Comment', [comment.article, comment],
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+                data: { confirm: 'Na pewno?' } %>
+
     </strong>
+    <%end%>
   </p>
 </div>

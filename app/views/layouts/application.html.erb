@@ -263,8 +263,12 @@
             </div>
             <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
               <h1>Nowy artykuł</h1>
-              <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
-              <p><%= link_to 'New article', new_article_path %></p>
+              <% if can? :manage, @article %>
+                <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
+                <p><%= link_to 'New article', new_article_path %></p>
+              <%else%>
+                  <p>Brak uprawnień.</p>
+              <%end%>
             </div>
 
       </div>
