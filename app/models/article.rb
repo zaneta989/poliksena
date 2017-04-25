@@ -3,7 +3,6 @@ class Article < ApplicationRecord
   validates :title, presence: true,
             length: { minimum: 5 }
   acts_as_taggable_on :tags
-
   def previous_post
     Article.where(["id < ?", id]).last
   end
