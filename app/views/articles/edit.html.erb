@@ -1,6 +1,6 @@
-<% if cannot? :manage, @article %>
+<% if (cannot? :manage, @article) || (current_user!=NIL && article.author == current_user.username)%>
       <div class="notice">
-        <p>Visible only for superadmins and supervisors! </p>
+        <p>Możesz zarządzać tylko swoimi artykułami</p>
       </div>
   <%else%>
       <div class="post">

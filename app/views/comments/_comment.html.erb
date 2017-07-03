@@ -12,8 +12,8 @@
 </div>
 <div class ="przyciski">
   <p>
-    <% if can? :manage, @comment%>
-    <strong><%= link_to 'Destroy Comment', [comment.article, comment],
+    <% if (can? :manage, @comment) || (current_user!=NIL && comment.commenter == current_user.username)%>
+    <strong><%= link_to 'Usuń komentarz', [comment.article, comment],
                 method: :delete,
                 data: { confirm: 'Na pewno?' } %>
 

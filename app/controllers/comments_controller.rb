@@ -1,9 +1,19 @@
 class CommentsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:create]
+  load_and_authorize_resource :only => [:create, :destroy]
+
+  
+
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    @comment.commenter = current_user.username #or whatever is you session name
+    if @comment.save
+      redirect_to article_path(@article)
+    else
+      flash.now[:danger] = "error"
+    end
+
+
   end
 
   def destroy

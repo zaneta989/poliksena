@@ -5,12 +5,17 @@ class Ability
       user ||= User.new
       if user.superadmin_role?
         can :manage, :all
-        can :access, :rails_admin
-        can :dashboard
+        can :destroy, :all
+        can :access, :all
       elsif user.supervisor_role?
-        can :manage, User
+        can :manage, Article
       else
         can :access, Article
+        can :manage, Article
+        can :access, Comment
+        can :manage, Comment
+        can :destroy, Article
+        can :destroy, Comment
       end
     end
 end
