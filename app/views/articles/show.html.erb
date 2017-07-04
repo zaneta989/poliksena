@@ -1,9 +1,11 @@
 <div class="post">
   <h1><%= @article.title %></h1>
   <span class="parametryPosta">
+    <%= @article.author %>
     <%= @article.updated_at.strftime("%D")%>
     <%= @article.comments.count %> comments
     <%= render @article.tags %>
+
   </span>
   <br><br>
   <%= @article.text %>
@@ -18,8 +20,11 @@
   <%= render 'comments/form' %>
   <div class="przyciski">
     <strong>
-      <% if can? :manage, @article %>
+      <% if (user_signed_in? && @article.author==current_user.username) %>
           <%= link_to "Zmień", edit_article_path(@article) %> |
+          <%= link_to 'Usuń', article_path(@article),
+                      method: :delete,
+                      data: { confirm: 'Na pewno?' } %>
       <% end %>
     </strong>
   </div>

@@ -23,7 +23,9 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def create
-    super
-    current_or_guest_user
+    super do |resource|
+      BackgroundWorker.trigger(resource)
+    end
   end
+
 end

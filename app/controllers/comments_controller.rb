@@ -7,6 +7,7 @@ class CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
     @comment.commenter = current_user.username #or whatever is you session name
+    authorize! :create, @comment
     if @comment.save
       redirect_to article_path(@article)
     else

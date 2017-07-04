@@ -218,7 +218,10 @@
               <%= link_to 'Strona główna', root_path %>
               <%= link_to 'Artykuły', articles_path %>
               <% if user_signed_in? %>
-                <%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %>
+                <li class="dropdown-menu">
+                  <li><%= link_to "Profil", current_user%></li>
+                  <li><%= link_to "Settings", edit_user_registration_path %></li>
+                  <li><%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %></li>></ul>
               <% else %>
                 <%= link_to 'Logowanie', new_user_session_path %>
               <% end %>
@@ -263,7 +266,7 @@
             </div>
             <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
               <h1>Nowy artykuł</h1>
-              <% if can? :manage, @article %>
+              <% if user_signed_in? %>
                 <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
                 <p><%= link_to 'New article', new_article_path %></p>
               <%else%>

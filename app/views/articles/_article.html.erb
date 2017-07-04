@@ -12,7 +12,7 @@
       <h3><%= link_to 'Read More', article_path(article) %></h3>
       <div class="przyciski">
         <strong>
-          <% if can? :manage, @article %>
+          <% if (user_signed_in? && @article.author==current_user.username) %>
               <%= link_to "Zmień", edit_article_path(@article) %> |
               <%= link_to 'Usuń', article_path(article),
                           method: :delete,

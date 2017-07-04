@@ -1,4 +1,4 @@
-<% if (cannot? :manage, @comment) %>
+<% if !user_signed_in?  %>
     <div class="notice">
       <p>Musisz się zalogować aby dodawać komentzarze!</p>
     </div>
