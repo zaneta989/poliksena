@@ -1,1 +1,8 @@
-<h1><%= @user.username %></h1>
+<div class="post">
+  <div class="post">
+    <h2>Profil</h2>
+    <br>Nazwa użytkownika: </br> <%=@user.username%>
+  </div>
+  <h3>Artykuły użytkownika</h3>
+  <%= render @user.articles %>
+</div>
