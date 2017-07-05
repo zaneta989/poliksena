@@ -2,6 +2,7 @@
   <div class="post">
     <h2>Profil</h2>
     <br>Nazwa użytkownika: </br> <%=@user.username%>
+    <br>Ilość polubionych artykułów: </br> <%=@user.likes.count%>
   </div>
   <h3>Artykuły użytkownika</h3>
   <%= render @user.articles %>
