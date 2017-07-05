@@ -3,7 +3,8 @@
   <span class="parametryPosta">
     <%= @article.author %>
     <%= @article.updated_at.strftime("%D")%>
-    <%= @article.comments.count %> comments
+    <%= @article.comments.count %> komentarzy
+    <%= @article.likes.count %> polubień
     <%= render @article.tags %>
 
   </span>
@@ -11,7 +12,17 @@
   <%= @article.text %>
   <br><br>
   <div class="containerPolA">
-    <h2>Polecane Artykuły</h2>
+    <button type="button" id="myButton" data-loading-text="Loading..." class="btn btn-primary" autocomplete="off">
+      Polub
+    </button>
+
+    <script>
+        $('#myButton').on('click', function () {
+            var $btn = $(this).button('loading');
+            <%@article.like(current_user)%>
+            $btn.button('reset')
+        })
+    </script>
     <div class="polecaneA">
     </div>
   </div>
