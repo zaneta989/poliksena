@@ -2,7 +2,7 @@
       <h4><%= article.updated_at.strftime("%e %B %Y")%></h4>
       <h1><%= link_to article.title, article_path(article) %></h1>
       <span class="szczegolyPosta">
-      by <%= article.author %>
+
       with <%= article.comments.count %> comments
 
     </span>
@@ -12,8 +12,8 @@
       <h3><%= link_to 'Read More', article_path(article) %></h3>
       <div class="przyciski">
         <strong>
-          <% if (user_signed_in? && article.author==current_user.username) %>
-              <%= link_to "Zmień", edit_article_path(article) %> |
+          <% if (user_signed_in? && @article.author==current_user.username) %>
+              <%= link_to "Zmień", edit_article_path(@article) %> |
               <%= link_to 'Usuń', article_path(article),
                           method: :delete,
                           data: { confirm: 'Na pewno?' } %>

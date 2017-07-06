@@ -204,9 +204,6 @@
         .poprzedni{
           text-align: left;
         }
-        .btn-noborder {
-          border: 0;
-        }
     </style>
   </head>
 
@@ -221,17 +218,10 @@
               <%= link_to 'Strona główna', root_path %>
               <%= link_to 'Artykuły', articles_path %>
               <% if user_signed_in? %>
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle btn-noborder" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Konto <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                      <li><%= link_to "Profil", "/show" %></li>
-                      <li><%= link_to "Settings", edit_user_registration_path %></li>
-                      <li role="separator" class="divider"></li>
-                      <li><%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %></li>
-                    </ul>
-                  </div>
+                <li class="dropdown-menu">
+                  <li><%= link_to "Profil", current_user%></li>
+                  <li><%= link_to "Settings", edit_user_registration_path %></li>
+                  <li><%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %></li>></ul>
               <% else %>
                 <%= link_to 'Logowanie', new_user_session_path %>
               <% end %>
@@ -287,6 +277,5 @@
       </div>
     </div>
     <footer>2017 Poliksena Blog</footer>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
 </html>
