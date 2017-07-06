@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20170704235427) do
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
 <<<<<<< HEAD
+<<<<<<< HEAD
   end
 
   create_table "likes", force: :cascade do |t|
@@ -35,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170704235427) do
     t.integer "article_id_id"
     t.index ["article_id_id"], name: "index_likes_on_article_id_id"
     t.index ["user_id_id"], name: "index_likes_on_user_id_id"
+=======
+>>>>>>> parent of 8aac809... user can see his account and change his data
 =======
 >>>>>>> parent of 8aac809... user can see his account and change his data
   end
