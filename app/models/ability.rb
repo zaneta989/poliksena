@@ -15,7 +15,7 @@ class Ability
         can :create, Article
         can [:update, :destroy], Article, :author => user.username
         can :create, Comment
-        can :destroy, Comment, :user_id => user.id
+        can :destroy, Comment, :commenter=>user.username
       end
     end
 end

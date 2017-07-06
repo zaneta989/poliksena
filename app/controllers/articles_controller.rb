@@ -16,8 +16,8 @@ class ArticlesController < ApplicationController
 
   end
   def create
-    @user = User.find(params[:id])
-    @article = @user.articles.new(article_params)
+
+
     authorize! :create, @article
     @article.author = current_user.username #or whatever is you session name
 
@@ -28,14 +28,14 @@ class ArticlesController < ApplicationController
     end
   end
   def edit
-    @user = User.find(params[:id])
-    @article = @user.articles.find(article_params)
+
+    @article = Article.find(params[:id])
     authorize! :update, @article
 
   end
   def update
-    @user = User.find(params[:id])
-    @article = @user.articles.find(article_params)
+
+    @article = Article.find(params[:id])
     authorize! :update, @article
     if @article.update(article_params)
       redirect_to @article
@@ -44,8 +44,8 @@ class ArticlesController < ApplicationController
     end
   end
   def destroy
-    @user = User.find(params[:id])
-    @article = @user.articles.find(article_params)
+
+    @article = Article.find(params[:id])
     @article.destroy
     authorize! :destroy, @article
 

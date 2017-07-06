@@ -1,281 +1,289 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Poliksena Blog</title>
-    <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <style type="text/css">
-        body {
-          font-family: Calibri, Helvetica, Arial, sans-serif;
-          background: url("http://1.bp.blogspot.com/-c-Z0i16rV6U/VI2Q3_p3woI/AAAAAAAABEs/P7dyrMzdxUk/s1600/symphony-1.png");
-          padding: 0;
-          margin: 0;
-        }
-        header {
-          box-sizing: border-box;
-          text-align: center;
-          background-color: #FFFFFF;
-          margin: 0;
-          padding: 20px 0;
-          font-family: Trattatello, sans-serif;
-          font-size: 40px;
-        }
-        #menu{
-          width: 100%;
-          height: 40px;
-          background-color: #FFFFFF;
-          text-align: center;
-          margin: 0;
-          padding: 10px;
-          box-sizing: border-box;
-        }
-        #menu a{
-          margin-right: 10px;
-        }
-        #content {
+<head>
+  <title>Poliksena Blog</title>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <style type="text/css">
+    body {
+      font-family: Calibri, Helvetica, Arial, sans-serif;
+      background: url("http://1.bp.blogspot.com/-c-Z0i16rV6U/VI2Q3_p3woI/AAAAAAAABEs/P7dyrMzdxUk/s1600/symphony-1.png");
+      padding: 0;
+      margin: 0;
+    }
+    header {
+      box-sizing: border-box;
+      text-align: center;
+      background-color: #FFFFFF;
+      margin: 0;
+      padding: 20px 0;
+      font-family: Trattatello, sans-serif;
+      font-size: 40px;
+    }
+    #menu{
+      width: 100%;
+      height: 40px;
+      background-color: #FFFFFF;
+      text-align: center;
+      margin: 0;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    #menu a{
+      margin-right: 10px;
+    }
+    #content {
+    }
+    a, a:visited {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      font-weight: bold;
+      color: #98001f;
+    }
+    .post {
+      background-color: #FFFFFF;
+      width: 100%;
+      margin: 15px 0;
+      padding: 40px;
+      text-align: justify;
+      box-sizing: border-box;
+    }
+    .post h1{
+      text-align: center;
+      text-transform: uppercase;
+      font-family: Inconsolata, serif;
+      padding-bottom: 10px;
+    }
+    .post h2{
+      text-align: left;
+      text-transform: uppercase;
+      font-family: Mishafi, serif;
+    }
+    .post h4{
+      text-align: center;
+      font-size: 14px;
+    }
+    .szczegolyPosta {
+      text-align: center;
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #8d8d8d;
+    }
+    .comment {
+      border-style: groove ridge inset outset;
+      padding: 0 15px 15px 15px;
+      font-size: 14px;
+      font-family: Calibri, Helvetica, Arial, sans-serif;
+      margin: 20px 20px 0px 20px;
+    }
+    .comment h1{
+      text-transform: uppercase;
+      display: inline;
+      font-family: Calibri, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+    .comment h2{
+      font-size: 12px;
+      font-family: "Arial Narrow", sans-serif;
+      display: inline;
+      color: #999999;
+    }
+    .przyciski{
+      text-transform: uppercase;
+      text-align: right;
+      font-family: Calibri, Helvetica, Arial, sans-serif;
+      font-size: 12px;
+      padding: 0px 0px 0px 20px;
+    }
+    footer{
+      background-color: #2E2F30;
+      color: white;
+      margin: 0;
+      width: 100%;
+      clear: both;
+      text-align: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .parametryPosta{
+      color: #999999;
+      text-align: left;
+      font-size: 14px;
+      font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+    }
+    .pasekDolny{
+      font-family: Calibri, Helvetica, Arial, sans-serif;
+      background: url("http://2.bp.blogspot.com/-TnrWMh-lg_A/VI2RPNyXcfI/AAAAAAAABE0/LmXEFTuLrjE/s1600/header_pattern.jpg");
+      width: 100%;
+      padding: 0;
+      margin: auto;
+      color: white;
+    }
+    .trescNaPaskuDolnym{
+      margin: 0;
+      padding: 0 0 0 20px;
+      text-align: justify;
+    }
+    .trescNaPaskuDolnym h1{
+      color: #DADADA;
+      font-size: 20px;
+      font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
+      text-transform: uppercase;
+      border-bottom: 2px solid #FFFFFF;
+      font-weight: bold;
+    }
+    #tag {
+      text-align: center;
+      background-color: rgba(255,255,255,0.7);
+      border: 1px ridge grey;
+      margin-top: 40px;
+      font-size: 30px;
+      font-family: "Arial Narrow", serif;
+      color: #999999;
+      padding: 15px;
+    }
+    .notice, .alert{
+      text-align: center;
+      background-color: rgba(255,255,255,0.7);
+      border: 1px ridge grey;
+      margin-top: 10px;
+      font-size: 15px;
+      font-family: "Arial Narrow", serif;
+      color: #999999;
+      padding: 8px;
+    }
+    .logowanie{
+      text-align: center;
+    }
+    .logowanie h2{
+      text-align: center;
+    }
+    .flickr_pagination {
+      text-align: center;
+      padding: 0.3em;
+      cursor: default; }
+    .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
+      padding: 0.2em 0.5em;
+      background-color: white;
+    }
+    .flickr_pagination .current {
+      font-style: normal;
+      font-weight: bold;
+      color: #ff0084; }
+    .flickr_pagination a {
+      border: 1px solid #dddddd;
+      color: #999999;
+      text-decoration: none; }
+    .flickr_pagination a:hover, .flickr_pagination a:focus {
+      border-color: #666666;
+      color: #999999; }
+    .flickr_pagination .page_info {
+      color: #aaaaaa;
+      padding-top: 0.8em; }
+    .flickr_pagination .previous_page, .flickr_pagination .next_page {
+      border-width: 2px; }
+    .flickr_pagination .previous_page {
+      margin-right: 1px; }
+    .flickr_pagination .next_page {
+      margin-left: 1px; }
+    .flickr_pagination{
+      margin-bottom: 15px;
+    }
+    .nastepny{
+      text-align: right;
+    }
+    .poprzedni{
+      text-align: left;
+    }
+    .btn-noborder {
+      border: 0;
+    }
+  </style>
+</head>
 
-        }
-        a, a:visited {
-          text-decoration: none;
-          color: black;
-        }
-        a:hover {
-          font-weight: bold;
-          color: #98001f;
-        }
-        .post {
-          background-color: #FFFFFF;
-          width: 100%;
-          margin: 15px 0;
-          padding: 40px;
-          text-align: justify;
-          box-sizing: border-box;
-        }
-        .post h1{
-          text-align: center;
-          text-transform: uppercase;
-          font-family: Inconsolata, serif;
-          padding-bottom: 10px;
-        }
-        .post h2{
-          text-align: left;
-          text-transform: uppercase;
-          font-family: Mishafi, serif;
-        }
-        .post h4{
-          text-align: center;
-          font-size: 14px;
-
-        }
-        .szczegolyPosta {
-          text-align: center;
-          font-size: 14px;
-          font-weight: bold;
-          text-transform: uppercase;
-          color: #8d8d8d;
-
-        }
-        .comment {
-          border-style: groove ridge inset outset;
-          padding: 0 15px 15px 15px;
-          font-size: 14px;
-          font-family: Calibri, Helvetica, Arial, sans-serif;
-          margin: 20px 20px 0px 20px;
-        }
-        .comment h1{
-          text-transform: uppercase;
-          display: inline;
-          font-family: Calibri, Helvetica, Arial, sans-serif;
-          font-size: 12px;
-        }
-        .comment h2{
-          font-size: 12px;
-          font-family: "Arial Narrow", sans-serif;
-          display: inline;
-          color: #999999;
-        }
-        .przyciski{
-          text-transform: uppercase;
-          text-align: right;
-          font-family: Calibri, Helvetica, Arial, sans-serif;
-          font-size: 12px;
-          padding: 0px 0px 0px 20px;
-        }
-        footer{
-          background-color: #2E2F30;
-          color: white;
-          margin: 0;
-          width: 100%;
-          clear: both;
-          text-align: center;
-          padding: 10px;
-          box-sizing: border-box;
-        }
-        .parametryPosta{
-          color: #999999;
-          text-align: left;
-          font-size: 14px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-        }
-        .pasekDolny{
-          font-family: Calibri, Helvetica, Arial, sans-serif;
-          background: url("http://2.bp.blogspot.com/-TnrWMh-lg_A/VI2RPNyXcfI/AAAAAAAABE0/LmXEFTuLrjE/s1600/header_pattern.jpg");
-          width: 100%;
-          padding: 0;
-          margin: auto;
-          color: white;
-        }
-        .trescNaPaskuDolnym{
-          margin: 0;
-          padding: 0 0 0 20px;
-          text-align: justify;
-        }
-        .trescNaPaskuDolnym h1{
-          color: #DADADA;
-          font-size: 20px;
-          font-family: "Helvetica Neue", Helvetica, Arial, Sans-Serif;
-          text-transform: uppercase;
-          border-bottom: 2px solid #FFFFFF;
-          font-weight: bold;
-        }
-        #tag {
-          text-align: center;
-          background-color: rgba(255,255,255,0.7);
-          border: 1px ridge grey;
-          margin-top: 40px;
-          font-size: 30px;
-          font-family: "Arial Narrow", serif;
-          color: #999999;
-          padding: 15px;
-        }
-        .notice, .alert{
-          text-align: center;
-          background-color: rgba(255,255,255,0.7);
-          border: 1px ridge grey;
-          margin-top: 10px;
-          font-size: 15px;
-          font-family: "Arial Narrow", serif;
-          color: #999999;
-          padding: 8px;
-        }
-        .logowanie{
-          text-align: center;
-        }
-        .logowanie h2{
-          text-align: center;
-        }
-        .flickr_pagination {
-          text-align: center;
-          padding: 0.3em;
-          cursor: default; }
-        .flickr_pagination a, .flickr_pagination span, .flickr_pagination em {
-          padding: 0.2em 0.5em;
-          background-color: white;
-        }
-        .flickr_pagination .current {
-          font-style: normal;
-          font-weight: bold;
-          color: #ff0084; }
-        .flickr_pagination a {
-          border: 1px solid #dddddd;
-          color: #999999;
-          text-decoration: none; }
-        .flickr_pagination a:hover, .flickr_pagination a:focus {
-          border-color: #666666;
-          color: #999999; }
-        .flickr_pagination .page_info {
-          color: #aaaaaa;
-          padding-top: 0.8em; }
-        .flickr_pagination .previous_page, .flickr_pagination .next_page {
-          border-width: 2px; }
-        .flickr_pagination .previous_page {
-          margin-right: 1px; }
-        .flickr_pagination .next_page {
-          margin-left: 1px; }
-        .flickr_pagination{
-          margin-bottom: 15px;
-        }
-        .nastepny{
-          text-align: right;
-        }
-        .poprzedni{
-          text-align: left;
-        }
-    </style>
-  </head>
-
-  <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <header>
-            <h1>Poliksena Blog</h1>
-          </header>
-          <div id="menu">
-              <%= link_to 'Strona główna', root_path %>
-              <%= link_to 'Artykuły', articles_path %>
-              <% if user_signed_in? %>
-                <li class="dropdown-menu">
-                  <li><%= link_to "Profil", current_user%></li>
-                  <li><%= link_to "Settings", edit_user_registration_path %></li>
-                  <li><%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %></li>></ul>
-              <% else %>
-                <%= link_to 'Logowanie', new_user_session_path %>
-              <% end %>
-          </div>
-        </div>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <header>
+        <h1>Poliksena Blog</h1>
+      </header>
+      <div id="menu">
+        <%= link_to 'Strona główna', root_path %>
+        <%= link_to 'Artykuły', articles_path %>
+        <% if user_signed_in? %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle btn-noborder" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Konto <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profil", users_path %></li>
+                <li><%= link_to "Settings", edit_user_registration_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'Wyloguj', destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </div>
+        <% else %>
+            <%= link_to 'Logowanie', new_user_session_path %>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-          <div id="content">
-            <% if notice %>
-                <p class="notice"><%= notice %></p>
-            <% end %>
-            <% if alert %>
-              <p class="alert"><%= alert %></p>
-            <%end%>
-            <%= yield %>
-          </div>
-        </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div id="content">
+        <% if notice %>
+            <p class="notice"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+            <p class="alert"><%= alert %></p>
+        <%end%>
+        <%= yield %>
       </div>
     </div>
+  </div>
+</div>
 
 
-    <div class="container-fluid">
-      <div class="row pasekDolny">
-            <div class="col-md-2 hidden-sm"></div>
-            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
-              <h1>About Author </h1>
-              <img src="https://media3.giphy.com/media/JIX9t2j0ZTN9S/200_s.gif" class="img-responsive">
-              <p>Student informatyki</p>
-            </div>
-            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
-              <h1>Tagi</h1>
-              <p><%= render template: "tags/index" %></p>
-            </div>
-            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
-              <h1>Cos tu bedzie</h1>
-              <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
-            </div>
-            <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
-              <h1>Nowy artykuł</h1>
-              <% if user_signed_in? %>
-                <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
-                <p><%= link_to 'New article', new_article_path %></p>
-              <%else%>
-                  <p>Brak uprawnień.</p>
-              <%end%>
-            </div>
-
-      </div>
+<div class="container-fluid">
+  <div class="row pasekDolny">
+    <div class="col-md-2 hidden-sm"></div>
+    <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+      <h1>About Author </h1>
+      <img src="https://media3.giphy.com/media/JIX9t2j0ZTN9S/200_s.gif" class="img-responsive">
+      <p>Student informatyki</p>
     </div>
-    <footer>2017 Poliksena Blog</footer>
-  </body>
+    <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+      <h1>Tagi</h1>
+      <p><%= render template: "tags/index" %></p>
+    </div>
+    <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+      <h1>Cos tu bedzie</h1>
+      <p>Duis viverra laoreet risus, a hendrerit lorem cursus vel. Proin feugiat odio leo, vel venenatis magna egestas vel. Nam a euismod augue, sed aliquam nisl.</p>
+    </div>
+    <div class="trescNaPaskuDolnym col-md-2 col-sm-3">
+      <h1>Nowy artykuł</h1>
+      <% if user_signed_in? %>
+          <p>Aby stworzyć nowy artykuł kliknij w link poniżej</p>
+          <p><%= link_to 'New article', new_article_path %></p>
+      <%else%>
+          <p>Brak uprawnień.</p>
+      <%end%>
+    </div>
+
+  </div>
+</div>
+<footer>2017 Poliksena Blog</footer>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
 </html>
